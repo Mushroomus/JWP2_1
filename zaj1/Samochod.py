@@ -17,3 +17,5 @@ moj_samochod = Samochod('Toyota', 'Corolla', 2020)
 # Drukowanie obiektu
 print(moj_samochod)
 moj_samochod.pokaz_informacje()
+
+#Example comment
