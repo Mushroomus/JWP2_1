@@ -14,7 +14,6 @@ class Student(Base):
     grade = Column(Float)
 
 
-# Tworzenie wszystkich tabel
 Base.metadata.create_all(engine)
 
 
@@ -45,19 +44,19 @@ def show_student_by_id(session, student_id):
     student = session.execute(select(Student).filter(Student.id == student_id)).scalar_one()
     print(f'Student ID: {student.id}, Name: {student.name}, Age: {student.age}, Grade: {student.grade}')
 
+
 def show_all_students(session):
     students = session.execute(text("SELECT * FROM students")).all()
     for student in students:
         print(f'{student.id}, {student.name}, {student.age}, {student.grade}')
 
 
-# Utworzenie sesji
 with Session(engine) as session:
     add_student(session, "Jan Kowalski", 30, 4.0)
     add_student(session,"Anna Nowak", 25, 3.5)
     add_student(session,"Marek Wiśniewski", 28, 3.8)
 
-# oeczyt danych z sesji
+
 with Session(engine) as session:
     show_all_students(session)
 
@@ -65,5 +64,4 @@ with Session(engine) as session:
     update_student_by_id(session, 1, new_name="Jan Update", new_age=26, new_grade=4.2)
     delete_student_by_id(session, 2)
     student = show_student_by_id(session, 1)
-
     show_all_students(session)
