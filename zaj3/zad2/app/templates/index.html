@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers List</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>{{task.id}} : {{ task.content }} <button class="delete-button" data-task-id="{{ task.id }}">Delete</button></li>
+        {% endfor %}
+    </ul>
+
+
+    <form id="add-task-form">
+        <input type="text" id="task-content" placeholder="Enter task content">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
