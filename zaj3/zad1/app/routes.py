@@ -1,9 +1,9 @@
 from datetime import datetime
 
 from flask import render_template, request, redirect, url_for
-from zaj3.flaskProject import app
-from zaj3.flaskProject.app import db
-from zaj3.flaskProject.app.models import Teacher
+from zaj3.zad1 import app
+from zaj3.zad1.app import db
+from zaj3.zad1.app.models import Teacher
 
 
 @app.route('/')

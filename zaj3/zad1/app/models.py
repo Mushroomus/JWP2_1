@@ -1,4 +1,4 @@
-from zaj3.flaskProject.app import db
+from zaj3.zad1.app import db
 
 class Teacher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
